@@ -3,7 +3,7 @@ public with sharing class SampleAppDataGenerationServiceTest {
     
     @IsTest
     public static void testGenerateData() {
-        FSSampleAppDataGenerationService.run();
+        SampleAppDataGenerationService.run();
 
         // Check right number of countries created
         List<FS_Sample_App_Country__mdt> countriesMeta = [SELECT DeveloperName, Finance_Manager_Role__c FROM FS_Sample_App_Country__mdt];
