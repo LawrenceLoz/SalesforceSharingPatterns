@@ -50,6 +50,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Donation__c.Received_By_User__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Donation__c.Thematic_Area_Coordination_Group__c</field>
         <readable>true</readable>
     </fieldPermissions>

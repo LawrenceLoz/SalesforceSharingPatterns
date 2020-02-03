@@ -15,6 +15,10 @@
                 <behavior>Edit</behavior>
                 <field>Programme_to_Support__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Received_By_User__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
