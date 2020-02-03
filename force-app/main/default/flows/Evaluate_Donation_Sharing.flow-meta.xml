@@ -64,7 +64,7 @@
         <name>SharingReason</name>
         <dataType>String</dataType>
         <value>
-            <stringValue>Major_Donor_Relationship_Manager__c</stringValue>
+            <stringValue>Received_By_User__c</stringValue>
         </value>
     </constants>
     <decisions>
