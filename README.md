@@ -16,3 +16,10 @@ This illustrates how we can use information from the object to control sharing w
 In this example, the Donation object will be shared to the Received By User in the lookup field.
 
 A process builder triggered from a donation update which checks for the lookup having changed, and calls an auto-launched flow if so. The flow removes any existing sharing for the sharing reason used, and creates a share record for the new user.
+
+# Pattern 4 : Scheduled sharing with flow
+Using the scheduled flow option to re-assess sharing for a group of records every day.
+
+In the example, Donations will be shared to the Country Finance Manager on the Country record linked to the Programme which is linked to the Dontation.
+
+This is a good admin-only approach to use when sharing should be based on information in related parent records. As this doesn't only trigger from a specicific object it ensures sharing is right after any record involved is changed.
