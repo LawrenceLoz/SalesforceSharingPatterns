@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingReason xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Share_to_Country_Finance_Manager__c</fullName>
+    <label>Share to Country Finance Manager</label>
+</SharingReason>
