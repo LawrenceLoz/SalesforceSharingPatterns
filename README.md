@@ -9,3 +9,17 @@ This illustrates how we can implement sharing management based on a field on the
 In the example, the Programme object will be shared to the Major Donor Relationship Manager user specified in the lookup field.
 
 The variation here invovles an asynchronous trigger with sharing logic which fires when a programme is created or updated. It's possible to use similar logic inside a synchronous trigger, or to use future or queueable methods to achieve the same result.
+
+# Pattern 2 : Real time sharing with process builder and flow
+This illustrates how we can use information from the object to control sharing with process builder and an auto-launched flow.
+
+In this example, the Donation object will be shared to the Received By User in the lookup field.
+
+A process builder triggered from a donation update which checks for the lookup having changed, and calls an auto-launched flow if so. The flow removes any existing sharing for the sharing reason used, and creates a share record for the new user.
+
+# Pattern 4 : Scheduled sharing with flow
+Using the scheduled flow option to re-assess sharing for a group of records every day.
+
+In the example, Donations will be shared to the Country Finance Manager on the Country record linked to the Programme which is linked to the Dontation.
+
+This is a good admin-only approach to use when sharing should be based on information in related parent records. As this doesn't only trigger from a specicific object it ensures sharing is right after any record involved is changed.
