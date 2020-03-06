@@ -210,7 +210,7 @@
             <field>ParentId</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>DonationId</elementReference>
+                <elementReference>$Record.Id</elementReference>
             </value>
         </filters>
         <filters>
@@ -332,8 +332,8 @@
         <object>Donation__c</object>
         <schedule>
             <frequency>Daily</frequency>
-            <startDate>2020-02-08</startDate>
-            <startTime>21:45:00.000Z</startTime>
+            <startDate>2020-03-06</startDate>
+            <startTime>06:45:00.000Z</startTime>
         </schedule>
         <triggerType>Scheduled</triggerType>
     </start>
