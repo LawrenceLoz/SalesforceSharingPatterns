@@ -34,7 +34,7 @@ trigger ProgrammeAsyncProgrammeSharingTrigger on Programme__ChangeEvent (after i
     for(Programme__ChangeEvent p : trigger.new) {
 
         EventBus.ChangeEventHeader header = p.ChangeEventHeader;
-        if (header.changetype == 'UPDATE' || header.changetype == 'INSERT') {
+        if (header.changetype == 'UPDATE' || header.changetype == 'CREATE') {
             Id recordId = header.getRecordIds()[0];
             relMgrsMap.put(recordId, p.Major_Donor_Relationship_Manager__c);
         }
