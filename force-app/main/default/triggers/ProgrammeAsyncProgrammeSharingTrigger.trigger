@@ -67,16 +67,13 @@ trigger ProgrammeAsyncProgrammeSharingTrigger on Programme__ChangeEvent (after i
             }
         }
 
-        // Get list of users (we want to be sure we can share to them)
-        Map<Id,User> userMap = new Map<Id,User>([SELECT Id, IsActive FROM User WHERE Id IN :relMgrsMap.values()]);
-
         // Create sharing records for all new sharing required
         List<Programme__Share> sharesToInsert = new List<Programme__Share>();
         for(Id recordId : relMgrsMap.keySet()) {
             Id relMgrId = (Id) relMgrsMap.get(recordId);
 
             // Create a share object only if relationship manager is populated with an active user
-            if(relMgrId != null && userMap.get(relMgrId).IsActive) {
+            if(relMgrId != null) {
                 Programme__Share p = new Programme__Share();
                 p.ParentId = recordId;
                 p.UserOrGroupId = relMgrId;
@@ -87,7 +84,12 @@ trigger ProgrammeAsyncProgrammeSharingTrigger on Programme__ChangeEvent (after i
         }
 
         // Make DML changes
-        if(!sharesToDelete.isEmpty()) delete sharesToDelete;
-        if(!sharesToInsert.isEmpty()) insert sharesToInsert;
+        Database.delete(sharesToDelete, false);
+        try {
+            if(!sharesToInsert.isEmpty()) Database.insert(sharesToInsert, false);
+        }
+        catch(DmlException e) {
+            System.debug('Exception inserting share records: '+e.getMessage());
+        }
     }
 }
